@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>German Engineering Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .quiz-container {
+      background: #fff;
+      width: 60%;
+      max-width: 800px;
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .question {
+      margin: 20px 0;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .options label {
+      display: block;
+      background: #f0f0f0;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .options input {
+      margin-right: 10px;
+    }
+
+    .options label:hover {
+      background: #d6eaff;
+    }
+
+    .feedback {
+      margin: 10px 0;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .wrong {
+      color: red;
+    }
+
+    .final-score {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-container">
+    <h1>German Engineering & Innovation Quiz</h1>
+    <form id="quizForm">
+      <!-- Q1 -->
+      <div class="question">1) Which German engineer is credited with inventing the first practical automobile?</div>
+      <div class="options">
+        <label><input type="radio" name="q1" value="Gottlieb Daimler" onclick="checkAnswer('q1','Karl Benz',this.value)"> Gottlieb Daimler</label>
+        <label><input type="radio" name="q1" value="Karl Benz" onclick="checkAnswer('q1','Karl Benz',this.value)"> Karl Benz</label>
+        <label><input type="radio" name="q1" value="Ferdinand Porsche" onclick="checkAnswer('q1','Karl Benz',this.value)"> Ferdinand Porsche</label>
+        <label><input type="radio" name="q1" value="Rudolf Diesel" onclick="checkAnswer('q1','Karl Benz',this.value)"> Rudolf Diesel</label>
+      </div>
+      <div class="feedback" id="feedback-q1"></div>
+
+      <!-- Q2 -->
+      <div class="question">2) Who invented the Diesel engine in 1897?</div>
+      <div class="options">
+        <label><input type="radio" name="q2" value="Nikolaus Otto" onclick="checkAnswer('q2','Rudolf Diesel',this.value)"> Nikolaus Otto</label>
+        <label><input type="radio" name="q2" value="Rudolf Diesel" onclick="checkAnswer('q2','Rudolf Diesel',this.value)"> Rudolf Diesel</label>
+        <label><input type="radio" name="q2" value="Werner von Siemens" onclick="checkAnswer('q2','Rudolf Diesel',this.value)"> Werner von Siemens</label>
+        <label><input type="radio" name="q2" value="Friedrich Bergius" onclick="checkAnswer('q2','Rudolf Diesel',this.value)"> Friedrich Bergius</label>
+      </div>
+      <div class="feedback" id="feedback-q2"></div>
+
+      <!-- Q3 -->
+      <div class="question">3) Which German company developed the world’s first mass-produced car, the Beetle?</div>
+      <div class="options">
+        <label><input type="radio" name="q3" value="BMW" onclick="checkAnswer('q3','Volkswagen',this.value)"> BMW</label>
+        <label><input type="radio" name="q3" value="Mercedes-Benz" onclick="checkAnswer('q3','Volkswagen',this.value)"> Mercedes-Benz</label>
+        <label><input type="radio" name="q3" value="Volkswagen" onclick="checkAnswer('q3','Volkswagen',this.value)"> Volkswagen</label>
+        <label><input type="radio" name="q3" value="Audi" onclick="checkAnswer('q3','Volkswagen',this.value)"> Audi</label>
+      </div>
+      <div class="feedback" id="feedback-q3"></div>
+
+      <!-- Q4 -->
+      <div class="question">4) Who developed the four-stroke internal combustion engine (Otto cycle)?</div>
+      <div class="options">
+        <label><input type="radio" name="q4" value="Rudolf Diesel" onclick="checkAnswer('q4','Nikolaus Otto',this.value)"> Rudolf Diesel</label>
+        <label><input type="radio" name="q4" value="Nikolaus Otto" onclick="checkAnswer('q4','Nikolaus Otto',this.value)"> Nikolaus Otto</label>
+        <label><input type="radio" name="q4" value="Karl Benz" onclick="checkAnswer('q4','Nikolaus Otto',this.value)"> Karl Benz</label>
+        <label><input type="radio" name="q4" value="Werner von Siemens" onclick="checkAnswer('q4','Nikolaus Otto',this.value)"> Werner von Siemens</label>
+      </div>
+      <div class="feedback" id="feedback-q4"></div>
+
+      <!-- Q5 -->
+      <div class="question">5) Which German company is known for inventing the first programmable computer (Z3)?</div>
+      <div class="options">
+        <label><input type="radio" name="q5" value="Siemens" onclick="checkAnswer('q5','Zuse KG',this.value)"> Siemens</label>
+        <label><input type="radio" name="q5" value="Bosch" onclick="checkAnswer('q5','Zuse KG',this.value)"> Bosch</label>
+        <label><input type="radio" name="q5" value="Zuse KG" onclick="checkAnswer('q5','Zuse KG',this.value)"> Zuse KG</label>
+        <label><input type="radio" name="q5" value="Volkswagen" onclick="checkAnswer('q5','Zuse KG',this.value)"> Volkswagen</label>
+      </div>
+      <div class="feedback" id="feedback-q5"></div>
+
+      <!-- Q6 -->
+      <div class="question">6) Who founded the Porsche automobile company in 1931?</div>
+      <div class="options">
+        <label><input type="radio" name="q6" value="Karl Benz" onclick="checkAnswer('q6','Ferdinand Porsche',this.value)"> Karl Benz</label>
+        <label><input type="radio" name="q6" value="Gottlieb Daimler" onclick="checkAnswer('q6','Ferdinand Porsche',this.value)"> Gottlieb Daimler</label>
+        <label><input type="radio" name="q6" value="Ferdinand Porsche" onclick="checkAnswer('q6','Ferdinand Porsche',this.value)"> Ferdinand Porsche</label>
+        <label><input type="radio" name="q6" value="August Horch" onclick="checkAnswer('q6','Ferdinand Porsche',this.value)"> August Horch</label>
+      </div>
+      <div class="feedback" id="feedback-q6"></div>
+
+      <!-- Q7 -->
+      <div class="question">7) Which German scientist is known for pioneering work in electrical engineering and founded Siemens?</div>
+      <div class="options">
+        <label><input type="radio" name="q7" value="Werner von Siemens" onclick="checkAnswer('q7','Werner von Siemens',this.value)"> Werner von Siemens</label>
+        <label><input type="radio" name="q7" value="Rudolf Diesel" onclick="checkAnswer('q7','Werner von Siemens',this.value)"> Rudolf Diesel</label>
+        <label><input type="radio" name="q7" value="Nikolaus Otto" onclick="checkAnswer('q7','Werner von Siemens',this.value)"> Nikolaus Otto</label>
+        <label><input type="radio" name="q7" value="Konrad Zuse" onclick="checkAnswer('q7','Werner von Siemens',this.value)"> Konrad Zuse</label>
+      </div>
+      <div class="feedback" id="feedback-q7"></div>
+
+      <!-- Q8 -->
+      <div class="question">8) Which German engineer built the first working programmable digital computer (Z3) in 1941?</div>
+      <div class="options">
+        <label><input type="radio" name="q8" value="Werner von Siemens" onclick="checkAnswer('q8','Konrad Zuse',this.value)"> Werner von Siemens</label>
+        <label><input type="radio" name="q8" value="Konrad Zuse" onclick="checkAnswer('q8','Konrad Zuse',this.value)"> Konrad Zuse</label>
+        <label><input type="radio" name="q8" value="Rudolf Diesel" onclick="checkAnswer('q8','Konrad Zuse',this.value)"> Rudolf Diesel</label>
+        <label><input type="radio" name="q8" value="Ferdinand Porsche" onclick="checkAnswer('q8','Konrad Zuse',this.value)"> Ferdinand Porsche</label>
+      </div>
+      <div class="feedback" id="feedback-q8"></div>
+    </form>
+
+    <div class="final-score" id="finalScore"></div>
+  </div>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+    const totalQuestions = 8;
+
+    function checkAnswer(q, correct, selected) {
+      const feedbackEl = document.getElementById("feedback-" + q);
+
+      if (selected === correct) {
+        feedbackEl.innerHTML = "✅ Correct!";
+        feedbackEl.className = "feedback correct";
+        score++;
+      } else {
+        feedbackEl.innerHTML = "❌ Wrong! Correct answer: " + correct;
+        feedbackEl.className = "feedback wrong";
+      }
+
+      // disable all options of this question
+      const radios = document.getElementsByName(q);
+      radios.forEach(r => r.disabled = true);
+
+      answered++;
+      if (answered === totalQuestions) {
+        document.getElementById("finalScore").innerHTML =
+          "🎯 Final Score: " + score + " / " + totalQuestions;
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
